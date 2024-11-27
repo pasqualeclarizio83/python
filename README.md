@@ -1,4 +1,4 @@
-# Python - Basi Complete con Commenti
+# Python - Basi Complete
 
 ```python
 # 1. Hello World
@@ -116,5 +116,3 @@ import math
 
 # Calcola la radice quadrata di 16
 print(math.sqrt(16))  # Stampa 4.0
-
-
