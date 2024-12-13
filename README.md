@@ -260,4 +260,56 @@ print(numeri)  # Stampa [1, 2, 3, 4, 5]
 ```
 
 
+```python
+# 6. Variabile dizionario
+# Una variabile che contiene coppie chiave-valore.
+persona = {"nome": "Alice", "età": 25}
+print(persona)  # Stampa {'nome': 'Alice', 'età': 25}
+```
+
+
+```python
+# 8. Variabile set (insieme)
+# Una variabile che contiene una collezione non ordinata di elementi univoci.
+frutti = {"mela", "banana", "arancia"}
+print(frutti)  # Stampa {'mela', 'banana', 'arancia'}
+```
+
+
+```python
+# 9. Variabile complessa (numero complesso)
+# Una variabile che rappresenta un numero complesso con una parte reale e una parte immaginaria.
+numero_complesso = 3 + 4j
+print(numero_complesso)  # Stampa (3+4j)
+```
+
+
+
+```python
+# 11. Variabile globale
+# Una variabile definita fuori da una funzione e accessibile al suo interno con la parola chiave 'global'.
+x = 5
+
+def modifica_x():
+    global x
+    x = 10
+
+modifica_x()
+print(x)  # Stampa 10
+```
+
+
+```python
+# 12. Variabile locale
+# Una variabile definita all'interno di una funzione e visibile solo all'interno di quella funzione.
+def somma():
+    y = 5
+    return y + 3
+
+print(somma())  # Stampa 8
+# print(y)       # Genererebbe un errore, perché 'y' è una variabile locale.
+```
+
+
+
 
