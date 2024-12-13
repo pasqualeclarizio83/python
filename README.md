@@ -217,3 +217,47 @@ def get_person_info():
 person = get_person_info()
 print(person)  # Stampa {'name': 'Alice', 'age': 25}
 ```
+
+
+
+## Variabili
+
+```python
+# 1. Variabile semplice (intero)
+# Una variabile che contiene un numero intero.
+numero = 10
+print(numero)  # Stampa 10
+```
+
+```python
+# 2. Variabile stringa
+# Una variabile che contiene una sequenza di caratteri.
+nome = "Alice"
+print(nome)  # Stampa "Alice"
+```
+
+
+```python
+# 3. Variabile float (numero decimale)
+# Una variabile che contiene un numero con la virgola decimale.
+pi_greco = 3.14
+print(pi_greco)  # Stampa 3.14
+```
+
+```python
+# 4. Variabile booleana
+# Una variabile che può essere vera o falsa.
+is_python_fun = True
+print(is_python_fun)  # Stampa True
+```
+
+
+```python
+# 5. Variabile lista
+# Una variabile che contiene una collezione ordinata di elementi.
+numeri = [1, 2, 3, 4, 5]
+print(numeri)  # Stampa [1, 2, 3, 4, 5]
+```
+
+
+
