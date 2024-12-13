@@ -611,3 +611,176 @@ def rimuovi_duplicati(lista):
             risultato.append(elemento)
     return risultato
 ```
+
+
+## Algoritmi di Ordinamento
+
+```python
+# Bubble Sort - Ordina una lista in ordine crescente
+def bubble_sort(arr):
+    n = len(arr)
+    # Passa attraverso la lista ripetutamente
+    for i in range(n):
+        # Ultimi i elementi sono già ordinati
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                # Scambia gli elementi
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+# Esempio di utilizzo
+numeri = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(numeri)
+print(numeri)  # Output: [11, 12, 22, 25, 34, 64, 90]
+
+```
+
+
+```python
+# Selection Sort - Ordina una lista in ordine crescente
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        # Trova l'indice del minimo elemento nella parte non ordinata
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+        # Scambia il minimo elemento con il primo elemento non ordinato
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+# Esempio di utilizzo
+numeri = [64, 25, 12, 22, 11]
+selection_sort(numeri)
+print(numeri)  # Output: [11, 12, 22, 25, 64]
+
+
+```
+
+
+```python
+# Insertion Sort - Ordina una lista in ordine crescente
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        # Sposta gli elementi dell'array che sono maggiori della chiave
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+
+# Esempio di utilizzo
+numeri = [12, 11, 13, 5, 6]
+insertion_sort(numeri)
+print(numeri)  # Output: [5, 6, 11, 12, 13]
+
+
+
+```
+
+
+```python
+# Merge Sort - Ordina una lista in ordine crescente
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2  # Trova il punto medio
+        L = arr[:mid]
+        R = arr[mid:]
+
+        # Ordina le due metà
+        merge_sort(L)
+        merge_sort(R)
+
+        i = j = k = 0
+
+        # Fonde le due metà ordinate
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+
+        # Copia gli elementi rimanenti di L, se presenti
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+
+        # Copia gli elementi rimanenti di R, se presenti
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
+
+# Esempio di utilizzo
+numeri = [38, 27, 43, 3, 9, 82, 10]
+merge_sort(numeri)
+print(numeri)  # Output: [3, 9, 10, 27, 38, 43, 82]
+
+
+
+```
+
+
+```python
+# Quick Sort - Ordina una lista in ordine crescente
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        # Elementi minori del pivot
+        left = [x for x in arr[1:] if x <= pivot]
+        # Elementi maggiori del pivot
+        right = [x for x in arr[1:] if x > pivot]
+        return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Esempio di utilizzo
+numeri = [10, 7, 8, 9, 1, 5]
+numeri_ordinati = quick_sort(numeri)
+print(numeri_ordinati)  # Output: [1, 5, 7, 8, 9, 10]
+
+```
+
+
+```python
+# Heap Sort - Ordina una lista in ordine crescente
+def heapify(arr, n, i):
+    largest = i  # Inizializza il nodo più grande come radice
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    # Verifica se il figlio sinistro è più grande della radice
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    # Verifica se il figlio destro è più grande della radice
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    # Se la radice non è il più grande, scambia e continua l'heapify
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+def heap_sort(arr):
+    n = len(arr)
+
+    # Costruisce un max heap
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # Estrae gli elementi uno alla volta
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        heapify(arr, i, 0)
+
+# Esempio di utilizzo
+numeri = [12, 11, 13, 5, 6, 7]
+heap_sort(numeri)
+print(numeri)  # Output: [5, 6, 7, 11, 12, 13]
+
+```
