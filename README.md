@@ -784,3 +784,183 @@ heap_sort(numeri)
 print(numeri)  # Output: [5, 6, 7, 11, 12, 13]
 
 ```
+
+
+
+```python
+# Tim Sort - Un algoritmo di ordinamento ibrido che combina Merge Sort e Insertion Sort
+def tim_sort(arr):
+    # Funzione di utilità per l'ordinamento tramite Insertion Sort su piccole porzioni dell'array
+    def insertion_sort(arr, left, right):
+        for i in range(left + 1, right + 1):
+            key = arr[i]
+            j = i - 1
+            while j >= left and arr[j] > key:
+                arr[j + 1] = arr[j]
+                j -= 1
+            arr[j + 1] = key
+
+    # Dimensione della sub-array in cui utilizziamo Insertion Sort
+    RUN = 32
+    n = len(arr)
+
+    # Ordina le sub-array utilizzando Insertion Sort
+    for i in range(0, n, RUN):
+        insertion_sort(arr, i, min(i + RUN - 1, n - 1))
+
+    # Ora uniamo le sub-array ordinate utilizzando Merge Sort
+    size = RUN
+    while size < n:
+        for start in range(0, n, 2 * size):
+            mid = min(n - 1, start + size - 1)
+            end = min((start + 2 * size - 1), (n - 1))
+            if mid < end:
+                merge(arr, start, mid, end)
+        size *= 2
+
+# Funzione di unione per il merge sort
+def merge(arr, left, mid, right):
+    n1 = mid - left + 1
+    n2 = right - mid
+    L = arr[left:left + n1]
+    R = arr[mid + 1:mid + 1 + n2]
+    i = j = 0
+    k = left
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+# Esempio di utilizzo
+arr = [5, 21, 7, 23, 19]
+tim_sort(arr)
+print(arr)  # Output: [5, 7, 19, 21, 23]
+
+```
+
+
+```python
+# Radix Sort - Ordina una lista di numeri interi
+def radix_sort(arr):
+    # Trova il valore massimo
+    max_num = max(arr)
+
+    # Esegui il count sort per ogni cifra
+    exp = 1  # L'unità di ordinamento (1s, 10s, 100s, etc.)
+    while max_num // exp > 0:
+        count_sort(arr, exp)
+        exp *= 10
+
+# Funzione di Count Sort
+def count_sort(arr, exp):
+    n = len(arr)
+    output = [0] * n
+    count = [0] * 10  # Poiché le cifre vanno da 0 a 9
+
+    # Conta le occorrenze delle cifre
+    for i in range(n):
+        index = arr[i] // exp
+        count[index % 10] += 1
+
+    # Modifica il count array per tenere traccia degli indici
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Costruisci l'array di output ordinato
+    i = n - 1
+    while i >= 0:
+        index = arr[i] // exp
+        output[count[index % 10] - 1] = arr[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    # Copia l'array ordinato nel array originale
+    for i in range(n):
+        arr[i] = output[i]
+
+# Esempio di utilizzo
+arr = [170, 45, 75, 90, 802, 24, 2, 66]
+radix_sort(arr)
+print(arr)  # Output: [2, 24, 45, 66, 75, 90, 170, 802]
+
+```
+
+
+
+```python
+# Bucket Sort - Ordina una lista di numeri in modo efficiente
+def bucket_sort(arr):
+    # Se l'array è vuoto, restituisci l'array vuoto
+    if len(arr) == 0:
+        return arr
+    
+    # Trova il valore massimo e minimo
+    min_value = min(arr)
+    max_value = max(arr)
+
+    # Definisci la dimensione del bucket
+    bucket_count = 10  # Ad esempio, 10 bucket
+
+    # Crea i bucket
+    buckets = [[] for _ in range(bucket_count)]
+
+    # Distribuisci gli elementi nei bucket
+    for num in arr:
+        index = int((num - min_value) / (max_value - min_value + 1) * (bucket_count - 1))
+        buckets[index].append(num)
+
+    # Ordina ciascun bucket
+    for i in range(bucket_count):
+        buckets[i] = sorted(buckets[i])
+
+    # Unisci tutti i bucket
+    sorted_arr = []
+    for i in range(bucket_count):
+        sorted_arr.extend(buckets[i])
+
+    return sorted_arr
+
+# Esempio di utilizzo
+arr = [0.42, 0.32, 0.33, 0.52, 0.37, 0.47, 0.51]
+arr = bucket_sort(arr)
+print(arr)  # Output: [0.32, 0.33, 0.37, 0.42, 0.47, 0.51, 0.52]
+
+```
+
+
+```python
+# Shell Sort - Una versione ottimizzata dell'Insertion Sort
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2  # Inizializza l'intervallo
+
+    # Continua finché l'intervallo non è ridotto a 1
+    while gap > 0:
+        # Esegui l'insertion sort per ogni "gap"
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+
+        gap //= 2  # Riduci l'intervallo
+
+# Esempio di utilizzo
+arr = [12, 34, 54, 2, 3]
+shell_sort(arr)
+print(arr)  # Output: [2, 3, 12, 34, 54]
+```
