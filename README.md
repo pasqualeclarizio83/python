@@ -496,3 +496,118 @@ def aggiungi_elemento(lista=None):
 
 print(aggiungi_elemento())
 ```
+
+
+## Funzioni con Array
+
+
+```python
+# 1. Funzione Semplice: Somma degli Elementi
+# Questa funzione prende un array di numeri e restituisce la loro somma.
+def somma_array(numeri):
+    return sum(numeri)
+```
+
+
+```python
+# 2. Funzione Semplice: Trovare il Massimo
+# Questa funzione restituisce il valore massimo in un array di numeri.
+def trova_massimo(numeri):
+    return max(numeri)
+```
+
+
+
+```python
+# 3. Funzione con Parametro di Default
+# Aggiunge un elemento all'array con un valore di default.
+def aggiungi_elemento(lista=None):
+    if lista is None:
+        lista = []
+    lista.append("elemento")
+    return lista
+```
+
+
+```python
+# 4. Funzione con Filtraggio: Numeri Pari
+# Restituisce solo i numeri pari presenti nell'array.
+def filtra_pari(numeri):
+    return [num for num in numeri if num % 2 == 0]
+```
+
+
+```python
+# 5. Funzione con Filtraggio: Parole Lunghe
+# Restituisce solo le parole con più di 5 caratteri.
+def filtra_parole_lunghe(parole):
+    return [parola for parola in parole if len(parola) > 5]
+```
+
+
+```python
+# 6. Funzione con Mappatura: Quadrati dei Numeri
+# Restituisce un nuovo array con i quadrati degli elementi originali.
+def quadrati(numeri):
+    return [num ** 2 for num in numeri]
+```
+
+
+
+```python
+# 7. Funzione con Riduzione: Prodotto degli Elementi
+# Calcola il prodotto di tutti gli elementi nell'array.
+from functools import reduce
+
+def prodotto_array(numeri):
+    return reduce(lambda x, y: x * y, numeri)
+```
+
+
+
+```python
+# 8. Funzione Complessa: Matrice Trasposta
+# Restituisce la trasposta di una matrice (array bidimensionale).
+def trasponi_matrice(matrice):
+    return [[riga[i] for riga in matrice] for i in range(len(matrice[0]))]
+
+# Esempio di utilizzo
+matrice = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+```
+
+
+
+```python
+# 9. Funzione Complessa: Merge di Due Liste Ordinate
+# Unisce due liste ordinate in una singola lista ordinata.
+def merge(l1, l2):
+    risultato = []
+    i, j = 0, 0
+    while i < len(l1) and j < len(l2):
+        if l1[i] < l2[j]:
+            risultato.append(l1[i])
+            i += 1
+        else:
+            risultato.append(l2[j])
+            j += 1
+    risultato.extend(l1[i:])
+    risultato.extend(l2[j:])
+    return risultato
+```
+
+
+```python
+# 10. Funzione Complessa: Eliminare Duplicati
+# Restituisce un array senza elementi duplicati mantenendo l'ordine originale.
+def rimuovi_duplicati(lista):
+    vista = set()
+    risultato = []
+    for elemento in lista:
+        if elemento not in vista:
+            vista.add(elemento)
+            risultato.append(elemento)
+    return risultato
+```
