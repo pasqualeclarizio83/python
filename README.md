@@ -84,3 +84,38 @@ thread = threading.Thread(target=print_hello)
 thread.start()
 thread.join()
 ```
+
+
+## Funzioni
+
+```python
+# 3. Funzione con valore di ritorno
+# Una funzione che restituisce un valore, che può essere utilizzato al di fuori della funzione stessa.
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # Stampa 8
+```
+
+
+```python
+# 4. Funzione con argomenti predefiniti
+# Una funzione che ha valori di default per uno o più argomenti, che vengono utilizzati se non vengono forniti argomenti.
+def greet(name="Guest"):
+    print(f"Hello, {name}!")
+
+greet()         # Stampa "Hello, Guest!"
+greet("Bob")    # Stampa "Hello, Bob!"
+```
+
+
+```python
+# 5. Funzione variadica
+# Una funzione che può accettare un numero variabile di argomenti.
+def sum_all(*args):
+    return sum(args)
+
+result = sum_all(1, 2, 3, 4, 5)
+print(result)  # Stampa 15
+```
