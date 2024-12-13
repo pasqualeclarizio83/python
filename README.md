@@ -311,5 +311,188 @@ print(somma())  # Stampa 8
 ```
 
 
+## Array
+
+```python
+# 1. Array Semplice
+# Creazione di un array (lista) di numeri interi
+numeri = [1, 2, 3, 4, 5]
+print(numeri)
+```
 
 
+```python
+# 2. Array di Stringhe
+# Creazione di un array (lista) di stringhe
+frutti = ["mela", "banana", "ciliegia"]
+print(frutti)
+```
+
+
+```python
+# 3. Array Misto
+# Creazione di un array contenente tipi diversi
+misto = [1, "ciao", 3.14, True]
+print(misto)
+```
+
+
+```python
+# 4. Array Bidimensionale (Matrice)
+# Creazione di una matrice 2x2
+matrice = [
+    [1, 2],
+    [3, 4]
+]
+print(matrice)
+```
+
+
+```python
+# 5. Aggiungere Elementi all'Array
+# Utilizzo del metodo append() per aggiungere un elemento alla fine della lista
+numeri.append(6)
+print(numeri)
+```
+
+
+
+```python
+# 6. Inserire Elementi in una Posizione Specifica
+# Utilizzo del metodo insert() per inserire un elemento in una posizione specifica
+frutti.insert(1, "arancia")  # Inserisce "arancia" nella posizione 1
+print(frutti)
+```
+
+
+
+```python
+# 7. Rimuovere Elementi dall'Array
+# Utilizzo del metodo remove() per rimuovere un elemento specifico
+frutti.remove("banana")
+print(frutti)
+```
+
+
+
+
+```python
+# 8. Rimuovere Elementi per Indice
+# Utilizzo del metodo pop() per rimuovere un elemento in una posizione specifica
+frutti.pop(0)  # Rimuove l'elemento nella posizione 0
+print(frutti)
+```
+
+
+
+```python
+# 9. Accedere agli Elementi
+# Accesso agli elementi tramite l'indice
+print(numeri[0])  # Primo elemento dell'array
+```
+
+
+
+```python
+# 10. Slicing dell'Array
+# Estrarre una porzione dell'array utilizzando lo slicing
+print(numeri[1:4])  # Estrae gli elementi dall'indice 1 all'indice 3
+```
+
+
+
+```python
+# 10. Slicing dell'Array
+# Estrarre una porzione dell'array utilizzando lo slicing
+print(numeri[1:4])  # Estrae gli elementi dall'indice 1 all'indice 3
+```
+
+
+```python
+# 11. Trovare la Lunghezza dell'Array
+# Utilizzo della funzione len() per ottenere la lunghezza dell'array
+print(len(numeri))
+```
+
+
+```python
+# 12. Ordinare l'Array
+# Utilizzo del metodo sort() per ordinare l'array in ordine crescente
+numeri.sort()
+print(numeri)
+```
+
+
+```python
+# 13. Ordinare l'Array in Ordine Decrescente
+# Utilizzo del metodo sort() con reverse=True
+numeri.sort(reverse=True)
+print(numeri)
+```
+
+
+```python
+# 14. Copiare un Array
+# Utilizzo del metodo copy() per creare una copia dell'array
+copia_numeri = numeri.copy()
+print(copia_numeri)
+```
+
+
+```python
+# 15. Iterare su un Array
+# Utilizzo di un ciclo for per iterare sugli elementi di un array
+for numero in numeri:
+    print(numero)
+```
+
+
+```python
+# 16. Verificare se un Elemento è nell'Array
+# Utilizzo dell'operatore in per verificare la presenza di un elemento
+if 3 in numeri:
+    print("3 è presente nell'array")
+```
+
+
+```python
+# 17. Sommare gli Elementi di un Array
+# Utilizzo della funzione sum() per sommare tutti gli elementi dell'array
+somma = sum(numeri)
+print(somma)
+```
+
+
+
+```python
+# 18. Funzione che Restituisce un Array
+# Funzione che restituisce una lista di numeri quadrati
+def crea_quadrati(n):
+    return [i ** 2 for i in range(n)]
+
+print(crea_quadrati(5))
+```
+
+
+
+```python
+# 19. Filtrare un Array
+# Funzione che filtra i numeri pari da una lista
+def filtra_pari(lista):
+    return [x for x in lista if x % 2 == 0]
+
+print(filtra_pari(numeri))
+```
+
+
+```python
+# 20. Funzione con Parametri di Default
+# Funzione che aggiunge un elemento a una lista con parametro di default
+def aggiungi_elemento(lista=None):
+    if lista is None:
+        lista = []
+    lista.append("nuovo elemento")
+    return lista
+
+print(aggiungi_elemento())
+```
