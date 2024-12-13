@@ -87,6 +87,7 @@ thread.join()
 
 
 ## Funzioni
+### una funzione è una relazione tra due insiemi, chiamati dominio e codominio. A ogni elemento del dominio corrisponde uno e un solo elemento del codominio. In parole più semplici, una funzione è come una "macchina" che prende in ingresso un valore (l'argomento) e restituisce in uscita un altro valore (il risultato).
 
 ```python
 # 3. Funzione con valore di ritorno
@@ -118,4 +119,86 @@ def sum_all(*args):
 
 result = sum_all(1, 2, 3, 4, 5)
 print(result)  # Stampa 15
+```
+
+
+```python
+# 6. Funzione con argomenti nominati
+# Una funzione che accetta argomenti con nomi espliciti.
+def person_info(name, age):
+    print(f"Name: {name}, Age: {age}")
+
+person_info(age=25, name="Alice")
+```
+
+
+```python
+# 7. Funzione ricorsiva
+# Una funzione che si chiama da sola per risolvere un problema suddiviso in sottoproblemi più piccoli.
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # Stampa 120
+```
+
+
+```python
+# 8. Funzione lambda
+# Una funzione anonima che può essere definita in una singola riga.
+add = lambda x, y: x + y
+
+print(add(3, 4))  # Stampa 7
+```
+
+```python
+# 9. Funzione di ordine superiore
+# Una funzione che accetta una funzione come argomento o restituisce una funzione.
+def apply_function(f, x):
+    return f(x)
+
+result = apply_function(lambda x: x * x, 4)
+print(result)  # Stampa 16
+```
+
+```python
+# 10. Funzione decoratore
+# Una funzione che modifica il comportamento di un'altra funzione senza modificarne il codice.
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello, World!")
+
+say_hello()
+```
+
+```python
+# 11. Funzione con variabili globali
+# Una funzione che accede e modifica variabili definite fuori dalla funzione.
+x = 10
+
+def increment():
+    global x
+    x += 1
+
+increment()
+print(x)  # Stampa 11
+```
+
+```python
+# 12. Funzione con tipi di ritorno complessi
+# Una funzione che restituisce un valore di tipo complesso, come una lista o un dizionario.
+def get_person_info():
+    return {"name": "Alice", "age": 25}
+
+person = get_person_info()
+print(person)  # Stampa {'name': 'Alice', 'age': 25}
 ```
