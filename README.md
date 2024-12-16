@@ -1417,3 +1417,169 @@ parole = ["elefante", "ippopotamo", "cane", "gatto"]
 print(stringa_con_piu_vocali(parole))
 # Output: "ippopotamo"
 ```
+
+
+## STRINGHE AVANZATE
+
+```python
+import re
+
+# Funzione per tokenizzare una stringa rimuovendo punteggiatura e spazi multipli
+def tokenizza(stringa):
+    return re.findall(r'\b\w+\b', stringa)  # \b indica il confine di una parola, \w+ rappresenta una parola
+
+# Esempio di utilizzo
+testo = "Ciao, come stai? Io sto bene! E tu?"
+print(tokenizza(testo))
+# Output: ['Ciao', 'come', 'stai', 'Io', 'sto', 'bene', 'E', 'tu']
+```
+
+
+```python
+# Funzione per trovare tutte le sottostringhe uniche di una stringa
+def sottostringhe_uniche(stringa):
+    sottostringhe = set()
+    lunghezza = len(stringa)
+    for i in range(lunghezza):
+        for j in range(i + 1, lunghezza + 1):
+            sottostringhe.add(stringa[i:j])
+    return sottostringhe
+
+# Esempio di utilizzo
+stringa = "abc"
+print(sottostringhe_uniche(stringa))
+# Output: {'a', 'b', 'c', 'ab', 'bc', 'abc'}
+```
+
+
+
+```python
+from itertools import permutations
+
+# Funzione per generare tutte le permutazioni di una stringa
+def permutazioni_stringa(stringa):
+    return [''.join(p) for p in permutations(stringa)]
+
+# Esempio di utilizzo
+stringa = "abc"
+print(permutazioni_stringa(stringa))
+# Output: ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+```
+
+
+```python
+# Funzione per comprimere una stringa contando i caratteri consecutivi
+def comprimi_stringa(stringa):
+    if not stringa:
+        return ""
+
+    risultato = []
+    count = 1
+
+    for i in range(1, len(stringa)):
+        if stringa[i] == stringa[i - 1]:
+            count += 1
+        else:
+            risultato.append(stringa[i - 1] + str(count))
+            count = 1
+
+    risultato.append(stringa[-1] + str(count))
+    return ''.join(risultato)
+
+# Esempio di utilizzo
+stringa = "aaabbcddddee"
+print(comprimi_stringa(stringa))
+# Output: "a3b2c1d4e2"
+```
+
+
+
+```python
+import re
+
+# Funzione per espandere una stringa compressa con conteggio dei caratteri
+def espandi_stringa(compressa):
+    return ''.join(char * int(count) for char, count in re.findall(r'([a-zA-Z])(\d+)', compressa))
+
+# Esempio di utilizzo
+compressa = "a3b2c1d4e2"
+print(espandi_stringa(compressa))
+# Output: "aaabbcddddee"
+```
+
+
+
+```python
+# Funzione per rimuovere sottostringhe consecutive ripetute
+def rimuovi_ripetizioni_consecutive(stringa):
+    parole = stringa.split()
+    risultato = [parole[0]]
+
+    for i in range(1, len(parole)):
+        if parole[i] != parole[i - 1]:
+            risultato.append(parole[i])
+
+    return ' '.join(risultato)
+
+# Esempio di utilizzo
+stringa = "ciao ciao come stai stai bene"
+print(rimuovi_ripetizioni_consecutive(stringa))
+# Output: "ciao come stai bene"
+```
+
+
+
+```python
+from collections import Counter
+
+# Funzione per analizzare la frequenza dei caratteri in una stringa
+def frequenza_caratteri(stringa):
+    conteggio = Counter(stringa)
+    return sorted(conteggio.items(), key=lambda x: x[1], reverse=True)
+
+# Esempio di utilizzo
+stringa = "esempio di stringa con caratteri"
+print(frequenza_caratteri(stringa))
+# Output: [(' ', 4), ('e', 3), ('i', 3), ('r', 3), ('a', 3), ('s', 2), ('t', 2), ...]
+```
+
+
+
+```python
+# Funzione per estrarre gli indirizzi email da un testo
+def estrai_email(testo):
+    return re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', testo)
+
+# Esempio di utilizzo
+testo = "Contattami a mario.rossi@example.com oppure info@test.org per ulteriori dettagli."
+print(estrai_email(testo))
+# Output: ['mario.rossi@example.com', 'info@test.org']
+```
+
+
+```python
+import base64
+
+# Funzione per codificare una stringa in Base64
+def codifica_base64(stringa):
+    return base64.b64encode(stringa.encode()).decode()
+
+# Esempio di utilizzo
+stringa = "Ciao, come stai?"
+print(codifica_base64(stringa))
+# Output: "Q2lhbywgY29tZSBzdGFpPw=="
+```
+
+
+
+
+```python
+# Funzione per decodificare una stringa da Base64
+def decodifica_base64(stringa_base64):
+    return base64.b64decode(stringa_base64.encode()).decode()
+
+# Esempio di utilizzo
+stringa_base64 = "Q2lhbywgY29tZSBzdGFpPw=="
+print(decodifica_base64(stringa_base64))
+# Output: "Ciao, come stai?"
+```
