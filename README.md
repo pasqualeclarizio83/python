@@ -964,3 +964,456 @@ arr = [12, 34, 54, 2, 3]
 shell_sort(arr)
 print(arr)  # Output: [2, 3, 12, 34, 54]
 ```
+
+## Numeri e operatori logici
+
+
+```python
+# Gli operatori logici vengono usati per valutare condizioni
+
+# `and`: Restituisce True se entrambe le condizioni sono vere
+condizione1 = True
+condizione2 = False
+print(condizione1 and condizione2)  # Stampa False perché una delle condizioni è False
+
+# `or`: Restituisce True se almeno una delle condizioni è vera
+print(condizione1 or condizione2)  # Stampa True perché una delle condizioni è True
+
+# `not`: Inverte il valore della condizione
+print(not condizione1)  # Stampa False perché `condizione1` è True
+
+# Esempio combinato con numeri e operatori logici
+x = 10
+y = 20
+print(x > 5 and y < 30)  # Stampa True perché entrambe le condizioni sono vere
+
+# Operatore `is`: Controlla se due oggetti sono lo stesso oggetto in memoria
+a = [1, 2, 3]
+b = a
+print(a is b)  # Stampa True perché `b` punta allo stesso oggetto di `a`
+
+# Operatore `in`: Verifica se un elemento è presente in una lista o sequenza
+elementi = [1, 2, 3, 4]
+print(3 in elementi)  # Stampa True perché 3 è presente nella lista `elementi`
+
+# Operatore `not in`: Verifica se un elemento non è presente in una lista o sequenza
+print(5 not in elementi)  # Stampa True perché 5 non è presente nella lista `elementi`
+
+#### Riepilogo degli operatori logici:
+
+#### and: Entrambe le condizioni devono essere vere.
+#### or: Almeno una delle condizioni deve essere vera.
+#### not: Inverte il valore della condizione.
+#### is: Verifica l'identità degli oggetti.
+#### in: Controlla se un elemento è presente in una sequenza.
+#### not in: Controlla se un elemento non è presente in una sequenza.
+```
+
+
+## Le Stringhe in Python
+
+```python
+# 1. Funzione parametrizzata per salutare una persona
+# Questa funzione accetta un nome come parametro e restituisce una stringa di saluto
+
+def saluta(nome):
+    return f"Ciao, {nome}!"
+
+# Chiamata alla funzione
+print(saluta("Mario"))  # Stampa "Ciao, Mario!"
+```
+
+
+```python
+# 2. Funzione per contare i caratteri in una stringa
+# Prende una stringa come parametro e restituisce la lunghezza della stringa
+
+def conta_caratteri(testo):
+    return len(testo)  # La funzione len() restituisce la lunghezza della stringa
+
+# Esempio di utilizzo
+print(conta_caratteri("Hello, World!"))  # Stampa 13
+```
+
+
+```python
+# 3. Funzione per convertire una stringa in maiuscolo
+# Utilizza il metodo .upper() per convertire la stringa in maiuscolo
+
+def converti_maiuscolo(testo):
+    return testo.upper()
+
+# Esempio di utilizzo
+print(converti_maiuscolo("ciao a tutti"))  # Stampa "CIAO A TUTTI"
+```
+
+
+```python
+# 4. Funzione per convertire una stringa in minuscolo
+# Utilizza il metodo .lower() per convertire la stringa in minuscolo
+
+def converti_minuscolo(testo):
+    return testo.lower()
+
+# Esempio di utilizzo
+print(converti_minuscolo("BUON GIORNO"))  # Stampa "buon giorno"
+```
+
+
+```python
+# 5. Funzione per sostituire una parola all'interno di una stringa
+# Utilizza il metodo .replace() per sostituire una parola con un'altra
+
+def sostituisci_parola(testo, parola_vecchia, parola_nuova):
+    return testo.replace(parola_vecchia, parola_nuova)
+
+# Esempio di utilizzo
+print(sostituisci_parola("Mi piace la pizza", "pizza", "pasta"))  # Stampa "Mi piace la pasta"
+```
+
+
+
+```python
+# 6. Funzione per dividere una stringa in una lista di parole
+# Utilizza il metodo .split() per dividere la stringa in base agli spazi
+
+def dividi_stringa(testo):
+    return testo.split()
+
+# Esempio di utilizzo
+print(dividi_stringa("Questa è una frase di esempio"))  # Stampa ['Questa', 'è', 'una', 'frase', 'di', 'esempio']
+```
+
+
+
+```python
+# 7. Funzione per unire una lista di parole in una stringa
+# Utilizza il metodo .join() per unire le parole con uno spazio
+
+def unisci_parole(lista_parole):
+    return ' '.join(lista_parole)
+
+# Esempio di utilizzo
+parole = ["Python", "è", "fantastico"]
+print(unisci_parole(parole))  # Stampa "Python è fantastico"
+```
+
+
+
+```python
+# 8. Funzione per verificare se una stringa contiene una parola specifica
+# Restituisce True se la parola è presente, altrimenti False
+
+def contiene_parola(testo, parola):
+    return parola in testo
+
+# Esempio di utilizzo
+print(contiene_parola("Mi piace programmare in Python", "Python"))  # Stampa True
+print(contiene_parola("Mi piace programmare in Python", "Java"))    # Stampa False
+```
+
+
+
+```python
+# 9. Funzione per rimuovere spazi all'inizio e alla fine di una stringa
+# Utilizza il metodo .strip() per rimuovere spazi indesiderati
+
+def rimuovi_spazi(testo):
+    return testo.strip()
+
+# Esempio di utilizzo
+print(rimuovi_spazi("   Ciao!   "))  # Stampa "Ciao!"
+```
+
+
+
+```python
+# 10. Funzione per invertire una stringa
+# Utilizza lo slicing con [::-1] per invertire la stringa
+
+def inverti_stringa(testo):
+    return testo[::-1]
+
+# Esempio di utilizzo
+print(inverti_stringa("Python"))  # Stampa "nohtyP"
+```
+
+## STRINGHE AVANZATE
+
+```python
+# 1. Funzione per contare le occorrenze di ogni parola in una stringa
+from collections import Counter
+
+def conta_occorrenze_parole(testo):
+    parole = testo.split()
+    return Counter(parole)  # Counter crea un dizionario con le parole e il numero di occorrenze
+
+# Esempio di utilizzo
+testo = "ciao mondo ciao programmazione ciao"
+print(conta_occorrenze_parole(testo))
+# Output: Counter({'ciao': 3, 'mondo': 1, 'programmazione': 1})
+```
+
+
+
+
+```python
+# 2. Funzione per trovare tutte le posizioni di una parola in una stringa
+def trova_posizioni_parola(testo, parola):
+    posizioni = []
+    indice = testo.find(parola)
+    while indice != -1:
+        posizioni.append(indice)
+        indice = testo.find(parola, indice + 1)
+    return posizioni
+
+# Esempio di utilizzo
+testo = "Python è un linguaggio Python molto potente Python"
+print(trova_posizioni_parola(testo, "Python"))
+# Output: [0, 20, 41]
+```
+
+
+
+```python
+# 3. Funzione per capitalizzare ogni parola di una stringa (titolo)
+def capitalizza_titolo(testo):
+    return testo.title()  # Converte la stringa in formato titolo (ogni parola con l'iniziale maiuscola)
+
+# Esempio di utilizzo
+testo = "benvenuti al mondo della programmazione"
+print(capitalizza_titolo(testo))
+# Output: "Benvenuti Al Mondo Della Programmazione"
+```
+
+
+
+```python
+# 4. Funzione per rimuovere i caratteri non alfabetici da una stringa
+import re
+
+def rimuovi_caratteri_non_alfabetici(testo):
+    return re.sub(r'[^a-zA-Z\s]', '', testo)  # Rimuove tutto tranne lettere e spazi
+
+# Esempio di utilizzo
+testo = "Ciao! Come stai? Oggi è il 20/09/2024."
+print(rimuovi_caratteri_non_alfabetici(testo))
+# Output: "Ciao Come stai Oggi è il "
+```
+
+
+
+```python
+# 5. Funzione per verificare se una stringa è un palindromo
+def e_palindromo(testo):
+    testo_pulito = ''.join(filter(str.isalnum, testo)).lower()  # Rimuove spazi e punteggiatura, converte in minuscolo
+    return testo_pulito == testo_pulito[::-1]
+
+# Esempio di utilizzo
+print(e_palindromo("Anna"))                 # Output: True
+print(e_palindromo("È un palindromo?"))     # Output: False
+print(e_palindromo("A man, a plan, a canal, Panama!"))  # Output: True
+```
+
+
+
+```python
+# 6. Funzione per formattare una stringa usando il padding
+def formatta_con_padding(testo, lunghezza, carattere=' '):
+    return testo.center(lunghezza, carattere)
+
+# Esempio di utilizzo
+print(formatta_con_padding("Python", 20, '-'))
+# Output: "-------Python-------"
+```
+
+
+
+```python
+# 7. Funzione per contare vocali e consonanti in una stringa
+def conta_vocali_consonanti(testo):
+    vocali = "aeiouAEIOU"
+    testo_pulito = ''.join(filter(str.isalpha, testo))  # Rimuove tutti i caratteri non alfabetici
+    num_vocali = sum(1 for char in testo_pulito if char in vocali)
+    num_consonanti = len(testo_pulito) - num_vocali
+    return {"vocali": num_vocali, "consonanti": num_consonanti}
+
+# Esempio di utilizzo
+testo = "Hello, World!"
+print(conta_vocali_consonanti(testo))
+# Output: {'vocali': 3, 'consonanti': 7}
+```
+
+
+
+```python
+# 8. Funzione per trovare e sostituire più parole contemporaneamente
+def sostituisci_multiple(testo, sostituzioni):
+    for vecchia, nuova in sostituzioni.items():
+        testo = testo.replace(vecchia, nuova)
+    return testo
+
+# Esempio di utilizzo
+testo = "Mi piace Python e odio il lunedì"
+sostituzioni = {"odio": "amo", "lunedì": "venerdì", "Python": "JavaScript"}
+print(sostituisci_multiple(testo, sostituzioni))
+# Output: "Mi piace JavaScript e amo il venerdì"
+```
+
+
+
+
+```python
+# 9. Funzione per spezzare una stringa ogni N caratteri
+def spezza_stringa(testo, n):
+    return [testo[i:i + n] for i in range(0, len(testo), n)]
+
+# Esempio di utilizzo
+testo = "Questa è una stringa molto lunga."
+print(spezza_stringa(testo, 5))
+# Output: ['Quest', 'a è u', 'na st', 'ringa', ' molt', 'o lun', 'ga.']
+```
+
+
+
+
+```python
+# 10. Funzione per generare un acronimo da una frase
+def genera_acronimo(testo):
+    parole = testo.split()
+    acronimo = ''.join(parola[0].upper() for parola in parole if parola)
+    return acronimo
+
+# Esempio di utilizzo
+frase = "Asynchronous JavaScript and XML"
+print(genera_acronimo(frase))
+# Output: "AJAX"
+```
+
+## FUNZIONI CON STRINGHE E ARRAY
+
+
+```python
+# Funzione che prende una lista di stringhe e le concatena usando un delimitatore specifico
+def concatena_con_delimitatore(array_stringhe, delimitatore):
+    return delimitatore.join(array_stringhe)  # Unisce tutte le stringhe con il delimitatore
+
+# Esempio di utilizzo
+parole = ["Python", "è", "un", "linguaggio", "potente"]
+print(concatena_con_delimitatore(parole, " - "))
+# Output: "Python - è - un - linguaggio - potente"
+```
+
+```python
+# Funzione che restituisce le stringhe più lunghe in una lista
+def stringhe_piu_lunghe(array_stringhe):
+    lunghezza_massima = max(len(s) for s in array_stringhe)  # Trova la lunghezza massima
+    return [s for s in array_stringhe if len(s) == lunghezza_massima]  # Filtra le stringhe più lunghe
+
+# Esempio di utilizzo
+parole = ["gatto", "elefante", "cane", "ippopotamo"]
+print(stringhe_piu_lunghe(parole))
+# Output: ["elefante", "ippopotamo"]
+```
+
+
+```python
+# Funzione che inverte ogni stringa all'interno di una lista
+def inverti_stringhe(array_stringhe):
+    return [s[::-1] for s in array_stringhe]  # Inverte ogni stringa utilizzando slicing
+
+# Esempio di utilizzo
+parole = ["ciao", "mondo", "python"]
+print(inverti_stringhe(parole))
+# Output: ['oaic', 'odnom', 'nohtyp']
+```
+
+
+```python
+# Funzione che rimuove i duplicati mantenendo l'ordine originale
+def rimuovi_duplicati(array_stringhe):
+    visti = set()
+    risultato = []
+    for s in array_stringhe:
+        if s not in visti:
+            visti.add(s)
+            risultato.append(s)
+    return risultato
+
+# Esempio di utilizzo
+parole = ["python", "java", "python", "c++", "java", "ruby"]
+print(rimuovi_duplicati(parole))
+# Output: ['python', 'java', 'c++', 'ruby']
+```
+
+
+
+```python
+# Funzione che filtra le stringhe che contengono una determinata sottostringa
+def filtra_per_sottostringa(array_stringhe, sottostringa):
+    return [s for s in array_stringhe if sottostringa in s]
+
+# Esempio di utilizzo
+parole = ["pythonista", "developer", "data scientist", "pycharm"]
+print(filtra_per_sottostringa(parole, "py"))
+# Output: ['pythonista', 'pycharm']
+```
+
+```python
+# Funzione che ordina prima per lunghezza e poi alfabeticamente
+def ordina_stringhe(array_stringhe):
+    return sorted(array_stringhe, key=lambda s: (len(s), s))
+
+# Esempio di utilizzo
+parole = ["banana", "kiwi", "apple", "fig", "cherry"]
+print(ordina_stringhe(parole))
+# Output: ['fig', 'kiwi', 'apple', 'banana', 'cherry']
+```
+
+
+
+```python
+# Funzione che divide le stringhe in base alla loro lunghezza
+def raggruppa_per_lunghezza(array_stringhe):
+    risultato = {}
+    for s in array_stringhe:
+        lunghezza = len(s)
+        if lunghezza not in risultato:
+            risultato[lunghezza] = []
+        risultato[lunghezza].append(s)
+    return risultato
+
+# Esempio di utilizzo
+parole = ["cat", "dog", "elephant", "bat", "lion", "ant"]
+print(raggruppa_per_lunghezza(parole))
+# Output: {3: ['cat', 'dog', 'bat', 'ant'], 4: ['lion'], 8: ['elephant']}
+```
+
+
+```python
+# Funzione che crea un dizionario con indici come chiavi e stringhe come valori
+def crea_dizionario_con_indici(array_stringhe):
+    return {i: s for i, s in enumerate(array_stringhe)}
+
+# Esempio di utilizzo
+parole = ["rosso", "verde", "blu", "giallo"]
+print(crea_dizionario_con_indici(parole))
+# Output: {0: 'rosso', 1: 'verde', 2: 'blu', 3: 'giallo'}
+```
+
+
+
+```python
+# Funzione che trova la stringa con il maggior numero di vocali
+def stringa_con_piu_vocali(array_stringhe):
+    def conta_vocali(s):
+        vocali = "aeiouAEIOU"
+        return sum(1 for char in s if char in vocali)
+
+    return max(array_stringhe, key=conta_vocali)
+
+# Esempio di utilizzo
+parole = ["elefante", "ippopotamo", "cane", "gatto"]
+print(stringa_con_piu_vocali(parole))
+# Output: "ippopotamo"
+```
