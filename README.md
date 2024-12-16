@@ -1583,3 +1583,65 @@ stringa_base64 = "Q2lhbywgY29tZSBzdGFpPw=="
 print(decodifica_base64(stringa_base64))
 # Output: "Ciao, come stai?"
 ```
+
+
+## UNIPLA, TUPLA
+
+#### In Python, termini come UNIPLA, UNIPLE, TUPLA e TUPLE non esistono formalmente come nomi per i tipi di dati o strutture di base.
+
+```python
+# UNIPLA: una stringa composta da un singolo carattere
+unipla = "A"
+
+# Stampa della stringa
+print(unipla)  # Output: A
+
+# Verifica del tipo
+print(type(unipla))  # Output: <class 'str'>
+```
+
+### TUPLA
+
+```python
+# TUPLA: una tupla con un solo elemento
+tupla = ("elemento",)
+
+# Stampa della tupla
+print(tupla)  # Output: ('elemento',)
+
+# Verifica del tipo
+print(type(tupla))  # Output: <class 'tuple'>
+```
+
+
+
+```python
+# TUPLE: una tupla con più elementi
+tuple_con_più_elementi = ("Python", "Java", "C++")
+
+# Stampa della tupla
+print(tuple_con_più_elementi)  # Output: ('Python', 'Java', 'C++')
+
+# Verifica del tipo
+print(type(tuple_con_più_elementi))  # Output: <class 'tuple'>
+```
+
+
+
+```python
+# UNIPLA: Stringa con un singolo carattere
+unipla = "X"
+print(unipla)  # Output: X
+
+# UNIPLE: Stringa con più caratteri
+uniple = "Ciao"
+print(uniple)  # Output: Ciao
+
+# TUPLA: Tupla con un solo elemento (richiede la virgola)
+tupla = ("unico_elemento",)
+print(tupla)  # Output: ('unico_elemento',)
+
+# TUPLE: Tupla con più elementi
+tuple_con_elementi = ("uno", "due", "tre")
+print(tuple_con_elementi)  # Output: ('uno', 'due', 'tre')
+```
