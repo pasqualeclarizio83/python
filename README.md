@@ -2268,3 +2268,117 @@ def filtra_lista(lista):
 numeri = [1, 2, 3, 2, 4, 5, 1]
 print(filtra_lista(numeri))  # Output: [1, 2, 3, 4, 5] (l'ordine può variare)
 ```
+
+
+#### Tipi BUILT-IN sono tipi di dati già integrati nel linguaggio
+#### permettono di gestire varie informazioni con numeri, stringhe, dizionari, set.
+
+
+```python
+def somma(a, b):
+    """Restituisce la somma di due numeri."""
+    return a + b
+
+print(somma(5, 3))        # Output: 8 (int)
+print(somma(4.2, 3.3))    # Output: 7.5 (float)
+print(somma(2 + 3j, 1 - 2j))  # Output: (3+1j) (complex)
+```
+
+
+```python
+def concatena_stringhe(str1, str2):
+    """Concatena due stringhe."""
+    return str1 + str2
+
+print(concatena_stringhe("Ciao, ", "mondo!"))  # Output: 'Ciao, mondo!'
+```
+
+```python
+def aggiungi_elemento(lista, elemento):
+    """Aggiunge un elemento alla lista."""
+    lista.append(elemento)
+    return lista
+
+numeri = [1, 2, 3]
+print(aggiungi_elemento(numeri, 4))  # Output: [1, 2, 3, 4]
+```
+
+
+```python
+def accesso_elemento(tupla, indice):
+    """Restituisce l'elemento alla posizione specificata nella tupla."""
+    return tupla[indice]
+
+frutti = ("mela", "banana", "kiwi")
+print(accesso_elemento(frutti, 1))  # Output: 'banana'
+```
+
+
+```python
+def aggiungi_voce(dizionario, chiave, valore):
+    """Aggiunge una coppia chiave-valore al dizionario."""
+    dizionario[chiave] = valore
+    return dizionario
+
+persona = {"nome": "Mario"}
+print(aggiungi_voce(persona, "età", 30))  # Output: {'nome': 'Mario', 'età': 30}
+```
+
+
+```python
+def aggiungi_al_set(insieme, elemento):
+    """Aggiunge un elemento al set."""
+    insieme.add(elemento)
+    return insieme
+
+numeri = {1, 2, 3}
+print(aggiungi_al_set(numeri, 4))  # Output: {1, 2, 3, 4}
+```
+
+
+```python
+def crea_frozenset(lista):
+    """Crea un frozenset a partire da una lista."""
+    return frozenset(lista)
+
+numeri = [1, 2, 3, 2]
+fs = crea_frozenset(numeri)
+print(fs)  # Output: frozenset({1, 2, 3})
+```
+
+
+```python
+def è_pari(numero):
+    """Restituisce True se il numero è pari, altrimenti False."""
+    return numero % 2 == 0
+
+print(è_pari(4))  # Output: True
+print(è_pari(5))  # Output: False
+```
+
+
+
+```python
+def restituisci_nessun_valore():
+    """Restituisce None."""
+    return None
+
+print(restituisci_nessun_valore())  # Output: None
+```
+
+
+
+```python
+def analizza_testo(testo):
+    """Restituisce un dizionario con il conteggio delle parole uniche in una stringa."""
+    parole = testo.split()
+    conteggio = {}
+    for parola in parole:
+        parola_pulita = parola.strip(",.!?").lower()
+        conteggio[parola_pulita] = conteggio.get(parola_pulita, 0) + 1
+    return conteggio
+
+testo = "Ciao mondo! Ciao Python. Python è fantastico."
+print(analizza_testo(testo))
+# Output: {'ciao': 2, 'mondo': 1, 'python': 2, 'è': 1, 'fantastico': 1}
+```
