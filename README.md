@@ -1815,3 +1815,175 @@ copia.append(4)
 print(originale)  # Output: [1, 2, 3]
 print(copia)      # Output: [1, 2, 3, 4]
 ```
+
+
+## DIZIONARIO
+
+```python
+# Creazione di un dizionario semplice
+persona = {
+    "nome": "Mario",
+    "età": 30,
+    "città": "Roma"
+}
+print(persona)  # Output: {'nome': 'Mario', 'età': 30, 'città': 'Roma'}
+```
+
+
+```python
+# Accesso ai valori tramite chiavi
+print(persona["nome"])  # Output: Mario
+print(persona["età"])   # Output: 30
+```
+
+```python
+# Utilizzo di get() per accedere ai valori in sicurezza
+print(persona.get("professione", "Non specificato"))  # Output: Non specificato
+```
+
+
+```python
+# Modificare una chiave esistente
+persona["età"] = 31
+
+# Aggiungere una nuova coppia chiave-valore
+persona["professione"] = "Ingegnere"
+
+print(persona)
+# Output: {'nome': 'Mario', 'età': 31, 'città': 'Roma', 'professione': 'Ingegnere'}
+```
+
+
+
+```python
+# Rimuovere una chiave specifica con pop()
+età = persona.pop("età")
+print(età)       # Output: 31
+print(persona)   # Output: {'nome': 'Mario', 'città': 'Roma', 'professione': 'Ingegnere'}
+
+# Rimuovere l'ultimo elemento inserito con popitem()
+ultimo = persona.popitem()
+print(ultimo)    # Output: ('professione', 'Ingegnere')
+print(persona)   # Output: {'nome': 'Mario', 'città': 'Roma'}
+
+# Rimuovere tutti gli elementi con clear()
+persona.clear()
+print(persona)   # Output: {}
+```
+
+
+
+```python
+persona = {
+    "nome": "Mario",
+    "età": 30,
+    "città": "Roma"
+}
+
+# Iterare sulle chiavi
+for chiave in persona:
+    print(chiave)
+
+# Iterare sui valori
+for valore in persona.values():
+    print(valore)
+
+# Iterare su chiavi e valori
+for chiave, valore in persona.items():
+    print(f"{chiave}: {valore}")
+```
+
+
+
+```python
+# Dizionario annidato
+studenti = {
+    "studente1": {
+        "nome": "Luigi",
+        "età": 20
+    },
+    "studente2": {
+        "nome": "Anna",
+        "età": 22
+    }
+}
+
+# Accesso ai dati del dizionario annidato
+print(studenti["studente1"]["nome"])  # Output: Luigi
+```
+
+#### Funzioni parametrizzate con dizionari
+
+```python
+def aggiungi_voce(dizionario, chiave, valore):
+    """Aggiunge una nuova coppia chiave-valore al dizionario."""
+    dizionario[chiave] = valore
+    return dizionario
+
+dati = {}
+dati = aggiungi_voce(dati, "nome", "Marco")
+print(dati)  # Output: {'nome': 'Marco'}
+```
+
+
+```python
+def aggiorna_valore(dizionario, chiave, nuovo_valore):
+    """Aggiorna il valore associato a una chiave."""
+    if chiave in dizionario:
+        dizionario[chiave] = nuovo_valore
+    else:
+        print(f"Chiave '{chiave}' non trovata.")
+    return dizionario
+
+persona = {"nome": "Sara", "età": 25}
+persona = aggiorna_valore(persona, "età", 26)
+print(persona)  # Output: {'nome': 'Sara', 'età': 26}
+```
+
+
+
+```python
+def rimuovi_voce(dizionario, chiave):
+    """Rimuove una voce dal dizionario in base alla chiave."""
+    if chiave in dizionario:
+        del dizionario[chiave]
+    else:
+        print(f"Chiave '{chiave}' non trovata.")
+    return dizionario
+
+persona = {"nome": "Luca", "città": "Milano"}
+persona = rimuovi_voce(persona, "città")
+print(persona)  # Output: {'nome': 'Luca'}
+```
+
+
+```python
+# Creare un dizionario con i quadrati dei numeri da 1 a 5
+quadrati = {x: x**2 for x in range(1, 6)}
+print(quadrati)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+
+```python
+# Dizionario non ordinato
+dati = {"b": 3, "a": 1, "c": 2}
+
+# Ordinare per chiave
+dati_ordinati_chiavi = dict(sorted(dati.items()))
+print(dati_ordinati_chiavi)  # Output: {'a': 1, 'b': 3, 'c': 2}
+
+# Ordinare per valore
+dati_ordinati_valori = dict(sorted(dati.items(), key=lambda item: item[1]))
+print(dati_ordinati_valori)  # Output: {'a': 1, 'c': 2, 'b': 3}
+```
+
+
+```python
+originale = {"nome": "Paolo", "età": 28}
+copia = originale.copy()
+
+# Modificare la copia non altera l'originale
+copia["età"] = 30
+print(originale)  # Output: {'nome': 'Paolo', 'età': 28}
+print(copia)      # Output: {'nome': 'Paolo', 'età': 30}
+```
