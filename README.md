@@ -2137,3 +2137,134 @@ dati = {
 print(dati)
 # Output: {frozenset({'mela', 'banana'}): 'Frutta mista', frozenset({'carota', 'sedano'}): 'Verdura mista'}
 ```
+
+
+### Funzioni con LISTE
+
+```python
+def aggiungi_elemento(lista, elemento):
+    """Aggiunge un elemento alla lista."""
+    lista.append(elemento)
+    return lista
+
+frutti = ["mela", "banana"]
+print(aggiungi_elemento(frutti, "kiwi"))  # Output: ['mela', 'banana', 'kiwi']
+```
+
+
+```python
+def trova_massimo(lista):
+    """Restituisce il valore massimo presente nella lista."""
+    return max(lista)
+
+numeri = [10, 25, 7, 42, 5]
+print(trova_massimo(numeri))  # Output: 42
+```
+
+
+```python
+def rimuovi_duplicati(lista):
+    """Rimuove i duplicati dalla lista e restituisce una nuova lista."""
+    return list(set(lista))
+
+numeri = [1, 2, 3, 2, 4, 3, 5]
+print(rimuovi_duplicati(numeri))  # Output: [1, 2, 3, 4, 5] (l'ordine può variare)
+```
+
+
+### Funzioni con Dizionari
+
+```python
+def aggiungi_elemento(dizionario, chiave, valore):
+    """Aggiunge una nuova coppia chiave-valore al dizionario."""
+    dizionario[chiave] = valore
+    return dizionario
+
+contatti = {"Mario": "1234567890"}
+print(aggiungi_elemento(contatti, "Luigi", "0987654321"))  # Output: {'Mario': '1234567890', 'Luigi': '0987654321'}
+```
+
+
+```python
+def trova_chiave(dizionario, chiave):
+    """Restituisce il valore associato alla chiave se esiste, altrimenti None."""
+    return dizionario.get(chiave, None)
+
+contatti = {"Mario": "1234567890", "Luigi": "0987654321"}
+print(trova_chiave(contatti, "Mario"))  # Output: '1234567890'
+print(trova_chiave(contatti, "Peach"))  # Output: None
+```
+
+
+
+```python
+def conta_occorrenze(lista):
+    """Conta quante volte ciascun elemento appare nella lista."""
+    conteggio = {}
+    for elemento in lista:
+        conteggio[elemento] = conteggio.get(elemento, 0) + 1
+    return conteggio
+
+frutti = ["mela", "banana", "mela", "kiwi", "banana", "mela"]
+print(conta_occorrenze(frutti))
+# Output: {'mela': 3, 'banana': 2, 'kiwi': 1}
+```
+### Funzioni con SET
+
+```python
+def aggiungi_al_set(insieme, elemento):
+    """Aggiunge un elemento al set."""
+    insieme.add(elemento)
+    return insieme
+
+numeri = {1, 2, 3}
+print(aggiungi_al_set(numeri, 4))  # Output: {1, 2, 3, 4}
+```
+
+
+```python
+def unione_set(set1, set2):
+    """Restituisce l'unione di due set."""
+    return set1.union(set2)
+
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print(unione_set(set1, set2))  # Output: {1, 2, 3, 4, 5}
+```
+
+
+```python
+def intersezione_set(set1, set2):
+    """Restituisce l'intersezione di due set (elementi comuni)."""
+    return set1.intersection(set2)
+
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+print(intersezione_set(set1, set2))  # Output: {2, 3}
+```
+
+### Funzioni che combinano LISTA, DIZIONARI e SET
+
+```python
+def conta_parole_uniche(lista_parole):
+    """Conta le parole uniche e restituisce un dizionario con il conteggio."""
+    parole_uniche = set(lista_parole)  # Ottiene parole uniche
+    conteggio = {}
+    for parola in parole_uniche:
+        conteggio[parola] = lista_parole.count(parola)
+    return conteggio
+
+parole = ["ciao", "mondo", "ciao", "python", "mondo", "ciao"]
+print(conta_parole_uniche(parole))
+# Output: {'ciao': 3, 'mondo': 2, 'python': 1}
+```
+
+
+```python
+def filtra_lista(lista):
+    """Restituisce una nuova lista senza duplicati."""
+    return list(set(lista))
+
+numeri = [1, 2, 3, 2, 4, 5, 1]
+print(filtra_lista(numeri))  # Output: [1, 2, 3, 4, 5] (l'ordine può variare)
+```
