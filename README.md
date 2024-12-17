@@ -1987,3 +1987,153 @@ copia["età"] = 30
 print(originale)  # Output: {'nome': 'Paolo', 'età': 28}
 print(copia)      # Output: {'nome': 'Paolo', 'età': 30}
 ```
+
+
+
+## SET E FROZENSET
+
+```python
+# Creazione di un set con elementi unici
+frutti = {"mela", "banana", "arancia", "mela"}  # "mela" appare solo una volta
+print(frutti)  # Output: {'mela', 'banana', 'arancia'}
+```
+
+
+```python
+# Creare un set vuoto (attenzione a non usare {})
+set_vuoto = set()
+print(set_vuoto)  # Output: set()
+```
+
+#### Operazioni di base
+
+```python
+# Aggiungere un elemento al set
+frutti.add("kiwi")
+print(frutti)  # Output: {'mela', 'banana', 'arancia', 'kiwi'}
+```
+
+
+```python
+# Rimuovere un elemento con discard (non genera errore se l'elemento non esiste)
+frutti.discard("banana")
+print(frutti)  # Output: {'mela', 'arancia', 'kiwi'}
+
+# Rimuovere un elemento con remove (genera un errore se l'elemento non esiste)
+frutti.remove("kiwi")
+print(frutti)  # Output: {'mela', 'arancia'}
+```
+
+
+```python
+# Controllare la presenza di un elemento
+print("mela" in frutti)  # Output: True
+print("kiwi" in frutti)  # Output: False
+```
+
+
+#### funzioni parametrizzate con set
+
+```python
+def aggiungi_elemento(insieme, elemento):
+    """Aggiunge un elemento a un set."""
+    insieme.add(elemento)
+    return insieme
+
+frutti = {"mela", "banana"}
+frutti = aggiungi_elemento(frutti, "kiwi")
+print(frutti)  # Output: {'mela', 'banana', 'kiwi'}
+```
+
+
+```python
+def rimuovi_elemento(insieme, elemento):
+    """Rimuove un elemento da un set, se presente."""
+    insieme.discard(elemento)
+    return insieme
+
+frutti = rimuovi_elemento(frutti, "banana")
+print(frutti)  # Output: {'mela', 'kiwi'}
+```
+
+#### Operazioni con più set
+
+```python
+# Unione di due set
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+unione = set1.union(set2)
+print(unione)  # Output: {1, 2, 3, 4, 5}
+```
+
+
+```python
+# Intersezione di due set (elementi comuni)
+intersezione = set1.intersection(set2)
+print(intersezione)  # Output: {3}
+```
+
+
+```python
+# Differenza (elementi presenti in set1 ma non in set2)
+differenza = set1.difference(set2)
+print(differenza)  # Output: {1, 2}
+```
+
+#### Frozenset è simile a un set, ma è immutabile
+
+```python
+# Creare un frozenset
+frutti_immutabili = frozenset(["mela", "banana", "arancia"])
+print(frutti_immutabili)  # Output: frozenset({'mela', 'banana', 'arancia'})
+```
+
+#### Funzioni con frozenset
+
+
+```python
+def crea_frozenset(lista_elementi):
+    """Crea un frozenset da una lista di elementi."""
+    return frozenset(lista_elementi)
+
+frutti = crea_frozenset(["pera", "uva", "melone"])
+print(frutti)  # Output: frozenset({'pera', 'uva', 'melone'})
+```
+
+
+```python
+# I frozenset sono immutabili, quindi non puoi aggiungere o rimuovere elementi
+try:
+    frutti.add("kiwi")
+except AttributeError as e:
+    print(f"Errore: {e}")  # Output: Errore: 'frozenset' object has no attribute 'add'
+```
+
+#### Operazioni con frozenset
+
+```python
+frozenset1 = frozenset([1, 2, 3])
+frozenset2 = frozenset([3, 4, 5])
+
+# Unione
+print(frozenset1 | frozenset2)  # Output: frozenset({1, 2, 3, 4, 5})
+
+# Intersezione
+print(frozenset1 & frozenset2)  # Output: frozenset({3})
+
+# Differenza
+print(frozenset1 - frozenset2)  # Output: frozenset({1, 2})
+```
+
+
+```python
+# Utilizzare un frozenset come chiave di un dizionario
+dati = {
+    frozenset(["mela", "banana"]): "Frutta mista",
+    frozenset(["carota", "sedano"]): "Verdura mista"
+}
+
+print(dati)
+# Output: {frozenset({'mela', 'banana'}): 'Frutta mista', frozenset({'carota', 'sedano'}): 'Verdura mista'}
+```
