@@ -2382,3 +2382,120 @@ testo = "Ciao mondo! Ciao Python. Python è fantastico."
 print(analizza_testo(testo))
 # Output: {'ciao': 2, 'mondo': 1, 'python': 2, 'è': 1, 'fantastico': 1}
 ```
+
+
+## Istruzioni Condizionali
+
+
+```python
+# Controlla se un numero è positivo, negativo o zero
+numero = 5
+
+if numero > 0:
+    print("Il numero è positivo.")
+elif numero < 0:
+    print("Il numero è negativo.")
+else:
+    print("Il numero è zero.")
+```
+
+
+
+```python
+def verifica_pari_dispari(numero):
+    """Restituisce se un numero è pari o dispari."""
+    if numero % 2 == 0:
+        return "Il numero è pari."
+    else:
+        return "Il numero è dispari."
+
+# Chiamata della funzione
+print(verifica_pari_dispari(4))  # Output: 'Il numero è pari.'
+print(verifica_pari_dispari(7))  # Output: 'Il numero è dispari.'
+```
+
+
+```python
+def confronta_numeri(a, b):
+    """Confronta due numeri e restituisce il maggiore o un messaggio di uguaglianza."""
+    if a > b:
+        return f"{a} è maggiore di {b}."
+    elif a < b:
+        return f"{b} è maggiore di {a}."
+    else:
+        return "I numeri sono uguali."
+
+# Chiamata della funzione
+print(confronta_numeri(10, 5))  # Output: '10 è maggiore di 5.'
+print(confronta_numeri(3, 7))   # Output: '7 è maggiore di 3.'
+print(confronta_numeri(4, 4))   # Output: 'I numeri sono uguali.'
+```
+
+
+```python
+def verifica_presenza(lista, elemento):
+    """Verifica se un elemento è presente nella lista."""
+    if elemento in lista:
+        return f"{elemento} è presente nella lista."
+    else:
+        return f"{elemento} NON è presente nella lista."
+
+# Chiamata della funzione
+frutti = ["mela", "banana", "kiwi"]
+print(verifica_presenza(frutti, "banana"))  # Output: 'banana è presente nella lista.'
+print(verifica_presenza(frutti, "pera"))    # Output: 'pera NON è presente nella lista.'
+```
+
+
+```python
+def verifica_chiave(dizionario, chiave):
+    """Verifica se una chiave è presente nel dizionario e restituisce il valore associato."""
+    if chiave in dizionario:
+        return f"La chiave '{chiave}' è presente con valore: {dizionario[chiave]}"
+    else:
+        return f"La chiave '{chiave}' NON è presente nel dizionario."
+
+# Chiamata della funzione
+persona = {"nome": "Luca", "età": 30}
+print(verifica_chiave(persona, "nome"))  # Output: 'La chiave 'nome' è presente con valore: Luca'
+print(verifica_chiave(persona, "sesso")) # Output: 'La chiave 'sesso' NON è presente nel dizionario.'
+```
+
+
+
+```python
+def verifica_elemento(insieme, elemento):
+    """Verifica se un elemento è presente in un set."""
+    if elemento in insieme:
+        return f"{elemento} è presente nell'insieme."
+    else:
+        return f"{elemento} NON è presente nell'insieme."
+
+# Chiamata della funzione
+numeri = {1, 2, 3, 4}
+print(verifica_elemento(numeri, 3))  # Output: '3 è presente nell'insieme.'
+print(verifica_elemento(numeri, 5))  # Output: '5 NON è presente nell'insieme.'
+```
+
+
+
+```python
+def valuta_eta(eta):
+    """Valuta l'età e restituisce una descrizione appropriata."""
+    if eta >= 18:
+        if eta >= 65:
+            return "Sei un adulto anziano."
+        else:
+            return "Sei un adulto."
+    else:
+        if eta < 13:
+            return "Sei un bambino."
+        else:
+            return "Sei un adolescente."
+
+# Chiamata della funzione
+print(valuta_eta(10))  # Output: 'Sei un bambino.'
+print(valuta_eta(16))  # Output: 'Sei un adolescente.'
+print(valuta_eta(30))  # Output: 'Sei un adulto.'
+print(valuta_eta(70))  # Output: 'Sei un adulto anziano.'
+```
