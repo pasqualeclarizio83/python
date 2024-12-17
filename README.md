@@ -1645,3 +1645,173 @@ print(tupla)  # Output: ('unico_elemento',)
 tuple_con_elementi = ("uno", "due", "tre")
 print(tuple_con_elementi)  # Output: ('uno', 'due', 'tre')
 ```
+
+
+
+## LISTE
+
+```python
+# Creazione di una lista di numeri
+numeri = [1, 2, 3, 4, 5]
+print(numeri)
+
+# Creazione di una lista di stringhe
+frutti = ["mela", "banana", "ciliegia"]
+print(frutti)
+```
+
+
+```python
+# Accesso al primo elemento
+print(frutti[0])  # Output: mela
+
+# Accesso all'ultimo elemento usando indici negativi
+print(frutti[-1])  # Output: ciliegia
+```
+
+
+```python
+# Modifica del secondo elemento
+frutti[1] = "arancia"
+print(frutti)  # Output: ['mela', 'arancia', 'ciliegia']
+```
+
+
+```python
+# Aggiungere un elemento alla fine della lista con append()
+frutti.append("uva")
+print(frutti)  # Output: ['mela', 'arancia', 'ciliegia', 'uva']
+
+# Aggiungere più elementi con extend()
+frutti.extend(["pera", "ananas"])
+print(frutti)  # Output: ['mela', 'arancia', 'ciliegia', 'uva', 'pera', 'ananas']
+```
+
+
+```python
+# Rimuovere un elemento specifico con remove()
+frutti.remove("ciliegia")
+print(frutti)  # Output: ['mela', 'arancia', 'uva', 'pera', 'ananas']
+
+# Rimuovere l'ultimo elemento con pop()
+ultimo = frutti.pop()
+print(ultimo)  # Output: ananas
+print(frutti)  # Output: ['mela', 'arancia', 'uva', 'pera']
+```
+
+
+```python
+# Iterazione semplice
+for frutto in frutti:
+    print(frutto)
+```
+
+
+```python
+# Lista annidata
+matrice = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Accesso a un elemento nella lista annidata
+print(matrice[1][2])  # Output: 6
+```
+
+
+```python
+# Creare una lista dei quadrati dei numeri da 1 a 5
+quadrati = [x**2 for x in range(1, 6)]
+print(quadrati)  # Output: [1, 4, 9, 16, 25]
+```
+
+
+
+```python
+def somma_lista(lista):
+    """Restituisce la somma degli elementi nella lista."""
+    return sum(lista)
+
+numeri = [10, 20, 30, 40]
+print(somma_lista(numeri))  # Output: 100
+```
+
+#### Funzioni parametrizzate con liste
+
+```python
+def somma_lista(lista):
+    """Restituisce la somma degli elementi nella lista."""
+    return sum(lista)
+
+numeri = [10, 20, 30, 40]
+print(somma_lista(numeri))  # Output: 100
+```
+
+
+```python
+def trova_massimo(lista):
+    """Restituisce il valore massimo della lista."""
+    return max(lista)
+
+print(trova_massimo(numeri))  # Output: 40
+```
+
+```python
+def filtra_pari(lista):
+    """Restituisce una lista contenente solo i numeri pari."""
+    return [x for x in lista if x % 2 == 0]
+
+numeri = [1, 2, 3, 4, 5, 6]
+print(filtra_pari(numeri))  # Output: [2, 4, 6]
+```
+
+```python
+def inverti_lista(lista):
+    """Restituisce una nuova lista con gli elementi invertiti."""
+    return lista[::-1]
+
+print(inverti_lista(numeri))  # Output: [6, 5, 4, 3, 2, 1]
+```
+
+#### Utilizzo delle funzioni map() e filter()
+
+```python
+def raddoppia(x):
+    return x * 2
+
+numeri = [1, 2, 3, 4]
+raddoppiati = list(map(raddoppia, numeri))
+print(raddoppiati)  # Output: [2, 4, 6, 8]
+```
+
+
+```python
+numeri_grandi = list(filter(lambda x: x > 10, [5, 15, 3, 20]))
+print(numeri_grandi)  # Output: [15, 20]
+```
+
+
+#### Ordinare una Lista
+
+```python
+# Ordinare una lista di numeri
+numeri = [3, 1, 4, 1, 5, 9]
+numeri.sort()
+print(numeri)  # Output: [1, 1, 3, 4, 5, 9]
+
+# Ordinare una lista di stringhe
+frutti = ["banana", "mela", "ciliegia"]
+frutti.sort()
+print(frutti)  # Output: ['banana', 'ciliegia', 'mela']
+```
+
+#### Copie di Liste
+
+```python
+originale = [1, 2, 3]
+copia = originale[:]
+copia.append(4)
+print(originale)  # Output: [1, 2, 3]
+print(copia)      # Output: [1, 2, 3, 4]
+```
